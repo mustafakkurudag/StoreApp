@@ -129,7 +129,7 @@ public class Product {
                 "id=" + id +
                 ", İsim:'" + name + '\'' +
                 ", Marka:" + brand.getName() +
-                //", category=" + category.getName() +
+                ", category=" + category.getName() +
                 ", price=" + price +
                 ", unitPrice=" + unitPrice +
                 ", discount=" + discount +

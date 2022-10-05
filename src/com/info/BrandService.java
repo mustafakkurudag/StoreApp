@@ -31,13 +31,22 @@ public class BrandService {
         return brands;
     }
 
+    public void printBrands() {
+        PriorityQueue<Brand> brands = getBrands();
+        Iterator<Brand> it = brands.iterator();
+        while (it.hasNext()) {
+            Brand b = it.next();
+            System.out.println(" - " + b.getName());
+        }
+    }
 
-    public Brand getBrandById(int id) {
+    public Brand getBrandByName(String name) {
         PriorityQueue<Brand> brands = getBrands();
         it = brands.iterator();
         while (it.hasNext()) {
-            if (it.next().getId() == id) {
-                return it.next();
+            Brand b = it.next();
+            if (b.getName().toLowerCase().equals(name)) {
+                return b;
             }
         }
         return null;
