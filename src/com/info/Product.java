@@ -14,6 +14,7 @@ public class Product {
     private int batteryPower;
     private int ram;
     private String color;
+    private int camera;
 
     public Product() {
         super();
@@ -51,6 +52,15 @@ public class Product {
         this.category = category;
     }
 
+    public int getDiscount() {
+        discount = 10;
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
+
     public double getPrice() {
         return price;
     }
@@ -60,20 +70,14 @@ public class Product {
     }
 
     public double getUnitPrice() {
-        return price - (price*discount/100);
+        return price - (price*getDiscount()/100);
     }
 
     public void setUnitPrice(double unitPrice) {
-        this.unitPrice = unitPrice;
+        this.unitPrice = getUnitPrice();
     }
 
-    public int getDiscount() {
-        return discount;
-    }
 
-    public void setDiscount(int discount) {
-        this.discount = discount;
-    }
 
     public int getStockAmount() {
         return stockAmount;
@@ -100,7 +104,7 @@ public class Product {
     }
 
     public int getBatteryPower() {
-        return batteryPower;
+        return batteryPower != 0 ? batteryPower : 0;
     }
 
     public void setBatteryPower(int batteryPower) {
@@ -123,21 +127,11 @@ public class Product {
         this.color = color;
     }
 
-    @Override
-    public String toString() {
-        return "Ürün Bilgileri" +
-                "id=" + id +
-                ", İsim:'" + name + '\'' +
-                ", Marka:" + brand.getName() +
-                ", category=" + category.getName() +
-                ", price=" + price +
-                ", unitPrice=" + unitPrice +
-                ", discount=" + discount +
-                ", stockAmount=" + stockAmount +
-                ", storage=" + storage +
-                ", screen=" + screen +
-                ", batteryPower=" + batteryPower +
-                ", ram=" + ram +
-                ", color='" + color + '\'' ;
+    public int getCamera() {
+        return camera;
+    }
+
+    public void setCamera(int camera) {
+        this.camera = camera;
     }
 }
